@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slide Image</title>
+</head>
+<body style="background: #abc;">
+<div id="slide-wrapper">
+	<div id="img-wrapper">
+		<div class="img-item">
+			<img src="../t-01.jpg">
+		</div>
+		<div class="img-item">
+			<img src="../t-02.jpg">
+		</div>
+		<div class="img-item">
+			<img src="../t-03.png">
+		</div>
+		<div class="img-item">
+			<img src="../t-04.png">
+		</div>
+	</div>
+</div>
+
+<a href="javascript:void(0)" onclick="previous()">Trước</a>
+<a href="javascript:void(0)" onclick="next()">Sau như 1</a>
+</body>
+<style type="text/css">
+	#slide-wrapper {
+		width: 419px;
+		overflow: hidden;
+		background: #fff;
+	}
+
+	#img-wrapper {
+		width: 419px;
+		background: #aaa;
+		display: -webkit-box;
+	}
+
+	.img-item {
+		width: 419px;
+		text-align: center;
+	}
+
+	.img-item img{
+		height: auto;
+		max-width: 100%;
+	}
+</style>
+<script type="text/javascript">
+	// Note: transition :"all 2s" notworking on CSS
+	
+	var width_wrapper = 419
+	var i = 0;
+	// previous()
+	// X = width_wrapper_current - width_wrapper
+	// Next: add Effect {transform, transition}
+	// Later: i-- return location current
+	function previous() { 
+		var translate_x = width_wrapper * i - width_wrapper
+		var img_wrapper = document.getElementById('img-wrapper')
+		img_wrapper.style.transform  = "translateX(-" + translate_x + "px)"
+		img_wrapper.style.transition ="all 2s"
+		
+		if(i==0) {
+			console.log('Equal 1')
+		}
+		else {
+			console.log('Not Equal 1')
+			i--
+		} 
+	}
+
+	// next()
+	// i = i+1: Get location_next
+	// X = width_wrapper * i
+	// Later: add Effect
+	function next() {
+		i = i+1
+		var translate_x = width_wrapper * i
+		var img_wrapper = document.getElementById('img-wrapper')
+		img_wrapper.style.transform  = "translateX(-" + translate_x + "px)"
+		img_wrapper.style.transition ="all 1s"
+	}
+</script>
+</html>

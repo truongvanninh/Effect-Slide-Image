@@ -7,16 +7,16 @@
 <div id="slide-wrapper">
 	<div id="img-wrapper">
 		<div class="img-item">
-			<img src="../t-01.jpg">
+			<img src="https://i.ytimg.com/vi/u0xfNForh1w/maxresdefault.jpg">
 		</div>
 		<div class="img-item">
-			<img src="../t-02.jpg">
+			<img src="http://townsquare.media/site/692/files/2018/08/baby-shark.jpg">
 		</div>
 		<div class="img-item">
-			<img src="../t-03.png">
+			<img src="https://i.ytimg.com/vi/8ljHzljQrY8/maxresdefault.jpg">
 		</div>
 		<div class="img-item">
-			<img src="../t-04.png">
+			<img src="https://images-na.ssl-images-amazon.com/images/S/sgp-catalog-images/region_US/daag1-ASNYW5MR0N5-Full-Image_GalleryBackground-en-US-1535151859443._RI_SX940_.png">
 		</div>
 	</div>
 </div>
@@ -30,18 +30,15 @@
 		overflow: hidden;
 		background: #fff;
 	}
-
 	#img-wrapper {
 		width: 419px;
 		background: #aaa;
 		display: -webkit-box;
 	}
-
 	.img-item {
 		width: 419px;
 		text-align: center;
 	}
-
 	.img-item img{
 		height: auto;
 		max-width: 100%;
@@ -57,26 +54,34 @@
 	// Next: add Effect {transform, transition}
 	// Later: i-- return location current
 	function previous() { 
-		var translate_x = width_wrapper * i - width_wrapper
-		var img_wrapper = document.getElementById('img-wrapper')
-		img_wrapper.style.transform  = "translateX(-" + translate_x + "px)"
-		img_wrapper.style.transition ="all 2s"
-		
 		if(i==0) {
+			i= 3
 			console.log('Equal 1')
 		}
 		else {
 			console.log('Not Equal 1')
 			i--
 		} 
+		var currentIndex = i + 1
+		var translate_x = width_wrapper * currentIndex - width_wrapper
+		var img_wrapper = document.getElementById('img-wrapper')
+		img_wrapper.style.transform  = "translateX(-" + translate_x + "px)"
+		img_wrapper.style.transition ="all 2s"
 	}
-
 	// next()
 	// i = i+1: Get location_next
 	// X = width_wrapper * i
 	// Later: add Effect
 	function next() {
-		i = i+1
+		if(i==3) {
+			i= 0
+			console.log('Equal 1')
+		}
+		else {
+			console.log('Not Equal 1')
+			i++
+		}
+
 		var translate_x = width_wrapper * i
 		var img_wrapper = document.getElementById('img-wrapper')
 		img_wrapper.style.transform  = "translateX(-" + translate_x + "px)"
